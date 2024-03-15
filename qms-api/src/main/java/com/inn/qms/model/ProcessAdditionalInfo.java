@@ -17,10 +17,10 @@ public class ProcessAdditionalInfo extends BaseEntity{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
-    private Long infoId;
+    private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "flowid_fk")
+    @JoinColumn(name = "processflowid_fk")
     private ProcessFlow processFlow;
 
     @ManyToOne
