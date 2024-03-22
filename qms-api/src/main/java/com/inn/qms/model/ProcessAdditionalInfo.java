@@ -27,6 +27,7 @@ public class ProcessAdditionalInfo extends BaseEntity{
     @JoinColumn(name="siteid_fk")
     private Site site;
 
+
     // Add other mandatory fields related to additional information, getters, and setters
 
 }
