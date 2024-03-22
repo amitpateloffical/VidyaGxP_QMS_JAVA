@@ -20,10 +20,14 @@ public class SiteServiceImpl implements ISiteService {
     }
 
     @Override
-    public Site updateSite(Site site) {
-        System.out.println("Update Data ");
-        return siteRepository.save(site);
+    public Site updateSite(Site site, Long siteId)
+    {
+        Site site1=siteRepository.findById(siteId).orElseThrow(()-> new RuntimeException("Site not found"));
+        site1.setSiteName(site.getSiteName());
+        siteRepository.save(site1);
+        return site1;
     }
+
 
     @Override
     public Site getByIdSiteDetails(Long id) {

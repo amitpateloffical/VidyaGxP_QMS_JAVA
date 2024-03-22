@@ -24,12 +24,13 @@ public class SiteControllerImpl implements ISiteController {
     }
 
     @Override
-    @PutMapping("/updateSite")
-    public ResponseEntity<Site> updateSite(@RequestBody Site site) {
-        Site updatedSite=siteService.updateSite(site);
+    @PutMapping("/update/{siteId}")
+    public ResponseEntity<Site> updateSite(@RequestBody Site site,@PathVariable Long siteId) {
 
-        return new ResponseEntity<Site>(updatedSite,HttpStatus.OK);
+        Site updatedSite=siteService.updateSite(site,siteId);
+        return new ResponseEntity<>(updatedSite,HttpStatus.OK);
     }
+
 
     @Override
     @GetMapping("/{id}")

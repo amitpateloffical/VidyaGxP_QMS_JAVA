@@ -8,7 +8,8 @@ import java.util.List;
 
 public interface ISiteController {
     ResponseEntity<Site> createSite( Site site);
-    ResponseEntity<Site> updateSite(Site site);
+
+    ResponseEntity<Site> updateSite( Site site,Long siteId);
     public Site getByIdSite(Long id);
     public List<Site> getAllSiteDetails();
     public Site getByNameSite(String siteName);
