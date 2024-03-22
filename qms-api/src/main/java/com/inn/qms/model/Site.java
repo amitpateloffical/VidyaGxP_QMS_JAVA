@@ -23,9 +23,6 @@ public class Site extends BaseEntity{
     @Column
     private String siteName;
 
-	
-	}
 
-
-
+}
 
