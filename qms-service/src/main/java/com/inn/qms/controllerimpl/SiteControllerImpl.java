@@ -40,6 +40,7 @@ public class SiteControllerImpl implements ISiteController {
 
 	@Override
 	@GetMapping("/getAllSite")
+	@CrossOrigin(origins = "http://localhost:5173/desktop/qms-app")
 	public List<Site> getAllSiteDetails() {
 		return siteService.getAllSite();
 	}
