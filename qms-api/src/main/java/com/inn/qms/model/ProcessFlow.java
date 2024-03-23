@@ -12,13 +12,16 @@ import lombok.Setter;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-public class ProcessFlow extends BaseEntity{
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column
-    private Long id;
-    @Column
-    private String flowName;
-    @Column
-    private String status;
+public class ProcessFlow extends BaseEntity {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column
+	private Long id;
+	
+	@Column(name = "flow_name")
+	private String flowName;
+	
+	@Column(name = "status")
+	private String status;
 }

@@ -17,7 +17,7 @@ public class Site extends BaseEntity{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column
+    @Column(name = "siteid")
     private Long siteId;
 
     @Column

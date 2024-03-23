@@ -16,7 +16,7 @@ public class ProcessAdditionalInfo extends BaseEntity{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column
+    @Column(name = "id")
     private Long id;
 
     @ManyToOne
