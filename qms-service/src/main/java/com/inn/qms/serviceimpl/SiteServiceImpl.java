@@ -22,10 +22,10 @@ public class SiteServiceImpl implements ISiteService {
     @Override
     public Site updateSite(Site site, Long siteId)
     {
-        Site site1=siteRepository.findById(siteId).orElseThrow(()-> new RuntimeException("Site not found"));
-        site1.setSiteName(site.getSiteName());
-        siteRepository.save(site1);
-        return site1;
+        Site siteData=siteRepository.findById(siteId).orElseThrow(()-> new RuntimeException("Site not found"));
+        siteData.setSiteName(site.getSiteName());
+        siteRepository.save(siteData);
+        return siteData;
     }
 
 
