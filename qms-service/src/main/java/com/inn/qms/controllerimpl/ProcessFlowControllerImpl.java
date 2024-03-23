@@ -17,6 +17,7 @@ public class ProcessFlowControllerImpl implements IProcessFlowController {
 
     @Autowired
     IProcessFlowService processFlowService;
+   
     @Override
     @PostMapping("/create")
     public ResponseEntity<ProcessFlow> createProcess(@RequestBody ProcessFlow processFlow) {
@@ -45,7 +46,7 @@ public class ProcessFlowControllerImpl implements IProcessFlowController {
     }
 
     @Override
-    @GetMapping("/alldetaills")
+    @GetMapping("/alldetails")
     public List<ProcessFlow> getAllDetails() {
         return processFlowService.getAllDetails();
     }

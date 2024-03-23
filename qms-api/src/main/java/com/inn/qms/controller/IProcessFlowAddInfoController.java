@@ -5,5 +5,7 @@ import com.inn.qms.model.ProcessAdditionalInfo;
 public interface IProcessFlowAddInfoController {
 
     ProcessAdditionalInfo create(ProcessAdditionalInfo processAdditionalInfo);
+    
     ProcessAdditionalInfo getById(long id);
+
 }
