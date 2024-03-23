@@ -1,18 +1,14 @@
 package com.inn.qms.controllerimpl;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.inn.qms.controller.IProcessFlowAddInfoController;
 import com.inn.qms.model.ProcessAdditionalInfo;
 import com.inn.qms.service.IProcessFlowAddInfoService;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:5173")
 @RequestMapping("/ProcessFlowAddInfo")
 public class ProcessFlowAddInfoControllerImpl implements IProcessFlowAddInfoController {
 
