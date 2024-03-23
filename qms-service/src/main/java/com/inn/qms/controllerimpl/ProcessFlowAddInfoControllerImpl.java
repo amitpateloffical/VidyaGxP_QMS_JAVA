@@ -24,8 +24,7 @@ public class ProcessFlowAddInfoControllerImpl implements IProcessFlowAddInfoCont
     @Override
     @GetMapping("/{id}")
     public ProcessAdditionalInfo getById(@PathVariable("id") long id) {
-
-        return  iProcessFlowAddInfoService.getByIdAllDetails(id);
+    	return  iProcessFlowAddInfoService.getByIdAllDetails(id);
     }
 
 

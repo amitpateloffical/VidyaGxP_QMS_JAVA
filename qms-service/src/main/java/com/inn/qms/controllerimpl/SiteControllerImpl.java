@@ -15,40 +15,38 @@ import java.util.List;
 @RequestMapping("/Site")
 public class SiteControllerImpl implements ISiteController {
 
-    @Autowired
-    ISiteService siteService;
-    @Override
-    @PostMapping("/createSite")
-    public ResponseEntity<Site> createSite(@RequestBody Site site) {
-       Site createdSite= siteService.createSite(site);
-         return new ResponseEntity<Site>(createdSite, HttpStatus.CREATED);
-    }
+	@Autowired
+	ISiteService siteService;
 
-    @Override
-    @PutMapping("/update/{siteId}")
-    public ResponseEntity<Site> updateSite(@RequestBody Site site,@PathVariable Long siteId) {
+	@Override
+	@PostMapping("/createSite")
+	public ResponseEntity<Site> createSite(@RequestBody Site site) {
+		Site createdSite = siteService.createSite(site);
+		return new ResponseEntity<Site>(createdSite, HttpStatus.CREATED);
+	}
 
-        Site updatedSite=siteService.updateSite(site,siteId);
-        return new ResponseEntity<>(updatedSite,HttpStatus.OK);
-    }
+	@Override
+	@PutMapping("/update/{siteId}")
+	public ResponseEntity<Site> updateSite(@RequestBody Site site, @PathVariable Long siteId) {
+		Site updatedSite = siteService.updateSite(site, siteId);
+		return new ResponseEntity<>(updatedSite, HttpStatus.OK);
+	}
 
+	@Override
+	@GetMapping("/{id}")
+	public Site getByIdSite(@PathVariable("id") Long id) {
+		return siteService.getByIdSiteDetails(id);
+	}
 
-    @Override
-    @GetMapping("/{id}")
-    public Site getByIdSite(@PathVariable("id") Long id) {
-        return siteService.getByIdSiteDetails(id);
+	@Override
+	@GetMapping("/getAllSite")
+	public List<Site> getAllSiteDetails() {
+		return siteService.getAllSite();
+	}
 
-    }
-
-    @Override
-    @GetMapping("/getAllSite")
-    public List<Site> getAllSiteDetails() {
-        return siteService.getAllSite();
-    }
-
-    @Override
-    @GetMapping("/name/{siteName}")
-    public Site getByNameSite(@PathVariable("siteName") String siteName) {
-        return siteService.getByNameDetails(siteName);
-    }
+	@Override
+	@GetMapping("/name/{siteName}")
+	public Site getByNameSite(@PathVariable("siteName") String siteName) {
+		return siteService.getByNameDetails(siteName);
+	}
 }

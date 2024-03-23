@@ -8,6 +8,7 @@ import java.util.List;
 public interface IProcessFlowController {
 
     ResponseEntity<ProcessFlow> createProcess(ProcessFlow processFlow);
+    
     ResponseEntity<ProcessFlow> updateProcess( ProcessFlow processFlow, long id);
 
     public ProcessFlow getByIdDetails( Long id);

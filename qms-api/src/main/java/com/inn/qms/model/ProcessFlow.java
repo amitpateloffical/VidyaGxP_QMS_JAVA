@@ -16,7 +16,7 @@ public class ProcessFlow extends BaseEntity {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column
+	@Column(name = "processflowid")
 	private Long id;
 	
 	@Column(name = "flow_name")
