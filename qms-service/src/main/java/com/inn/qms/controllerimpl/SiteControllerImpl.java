@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/site")
+@RequestMapping("/Site")
 public class SiteControllerImpl implements ISiteController {
 
     @Autowired
