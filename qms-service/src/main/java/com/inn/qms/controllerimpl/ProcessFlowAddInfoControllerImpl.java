@@ -8,7 +8,7 @@ import com.inn.qms.model.ProcessAdditionalInfo;
 import com.inn.qms.service.IProcessFlowAddInfoService;
 
 @RestController
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "http://localhost:5173")
 @RequestMapping("/ProcessFlowAddInfo")
 public class ProcessFlowAddInfoControllerImpl implements IProcessFlowAddInfoController {
 

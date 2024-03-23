@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "http://localhost:5173")
 @RequestMapping("/Site")
 public class SiteControllerImpl implements ISiteController {
 
@@ -42,7 +42,6 @@ public class SiteControllerImpl implements ISiteController {
 
     @Override
     @GetMapping("/getAllSite")
-    @CrossOrigin(origins = "http://localhost:5173/desktop/qms-app")
     public List<Site> getAllSiteDetails() {
         return siteService.getAllSite();
     }
