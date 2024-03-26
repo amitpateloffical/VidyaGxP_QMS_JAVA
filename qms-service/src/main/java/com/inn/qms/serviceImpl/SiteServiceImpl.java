@@ -1,50 +1,47 @@
-package com.inn.qms.serviceImpl;
+package com.inn.qms.serviceimpl;
 
-import lombok.AllArgsConstructor;
-
+import com.inn.qms.respository.ISiteRepository;
+import com.inn.qms.model.Site;
+import com.inn.qms.service.ISiteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-
-import com.inn.qms.model.Site;
-import com.inn.qms.repository.SiteRepository;
-import com.inn.qms.service.SiteService;
-
 import java.util.List;
-import java.util.Optional;
 
 @Service
-@AllArgsConstructor
-public class SiteServiceImpl implements SiteService {
+public class SiteServiceImpl implements ISiteService {
 
-	@Autowired
-    private SiteRepository siteRepository;
-
-    
-    public Site createSite(Site site) {
+    @Autowired
+    ISiteRepository siteRepository ;
+   
+    @Override
+    public Site createSite(Site site)
+    {
         return siteRepository.save(site);
     }
 
-
-	@Override
-	public Site getSiteById(Long siteId) {
-		
-		 Optional<Site> optionalSite = siteRepository.findById(siteId);
-	        return optionalSite.get();
-	}
-
-
-	@Override
-    public Site updateSite(Site site) {
-        Site existingSite = siteRepository.findById(site.getSiteId()).get();
-        existingSite.setSiteName(site.getSiteName());
-        Site updatedSite = siteRepository.save(existingSite);
-        return updatedSite;
+    @Override
+    public Site updateSite(Site site, Long siteId)
+    {
+        Site siteData=siteRepository.findById(siteId).orElseThrow(()-> new RuntimeException("Site not found"));
+        siteData.setSiteName(site.getSiteName());
+        siteRepository.save(siteData);
+        return siteData;
     }
 
 
-	@Override
-	public List<Site> getAllSites() {
+    @Override
+    public Site getByIdSiteDetails(Long id) {
+        return siteRepository.findById(id).get();
+    }
+
+    @Override
+    public List<Site> getAllSite() {
         return siteRepository.findAll();
-	}
     }
+
+    @Override
+    public Site getByNameDetails(String siteName) {
+        return siteRepository.getBysiteName(siteName);
+    }
+}

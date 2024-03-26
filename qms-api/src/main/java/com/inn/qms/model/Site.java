@@ -17,11 +17,10 @@ public class Site extends BaseEntity{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column
-    private Long siteId;
+    private Long id;
 
     @Column
-    private String siteName;
+    private String name;
 
 	
 	}

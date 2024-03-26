@@ -16,7 +16,10 @@ import java.util.Date;
 @MappedSuperclass
 public class BaseEntity implements Serializable {
 
-    @CreationTimestamp
+    
+	private static final long serialVersionUID = 1L;
+
+	@CreationTimestamp
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "creation_time", updatable = false)
     private Date creationTime;

@@ -16,7 +16,6 @@ public class ProcessAdditionalInfo extends BaseEntity{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column
     private Long id;
 
     @ManyToOne
@@ -26,6 +25,7 @@ public class ProcessAdditionalInfo extends BaseEntity{
     @ManyToOne
     @JoinColumn(name="siteid_fk")
     private Site site;
+
 
     // Add other mandatory fields related to additional information, getters, and setters
 
