@@ -1,17 +1,13 @@
 package com.inn.qms.model;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @Entity
 @Table(name = "Process_Flow")
-@Setter
-@Getter
 @NoArgsConstructor
 @AllArgsConstructor
+@Data
 public class ProcessFlow extends BaseEntity {
 	
 	@Id
