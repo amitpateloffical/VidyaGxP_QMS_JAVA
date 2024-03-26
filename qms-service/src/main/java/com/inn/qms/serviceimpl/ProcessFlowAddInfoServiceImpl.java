@@ -5,9 +5,9 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.inn.qms.Respository.IProcessFlowAddInfoRepository;
-import com.inn.qms.Respository.IProcessFlowRepository;
-import com.inn.qms.Respository.ISiteRepository;
+import com.inn.qms.respository.IProcessFlowAddInfoRepository;
+import com.inn.qms.respository.IProcessFlowRepository;
+import com.inn.qms.respository.ISiteRepository;
 import com.inn.qms.model.ProcessAdditionalInfo;
 import com.inn.qms.model.ProcessFlow;
 import com.inn.qms.model.Site;

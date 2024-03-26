@@ -1,6 +1,6 @@
 package com.inn.qms.serviceimpl;
 
-import com.inn.qms.Respository.ISiteRepository;
+import com.inn.qms.respository.ISiteRepository;
 import com.inn.qms.model.Site;
 import com.inn.qms.service.ISiteService;
 import org.springframework.beans.factory.annotation.Autowired;

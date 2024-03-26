@@ -1,4 +1,4 @@
-package com.inn.qms.Respository;
+package com.inn.qms.respository;
 
 import com.inn.qms.model.ProcessFlow;
 import org.springframework.data.jpa.repository.JpaRepository;

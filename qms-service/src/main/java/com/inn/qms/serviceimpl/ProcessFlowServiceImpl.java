@@ -1,6 +1,6 @@
 package com.inn.qms.serviceimpl;
 
-import  com.inn.qms.Respository.IProcessFlowRepository;
+import  com.inn.qms.respository.IProcessFlowRepository;
 import com.inn.qms.model.ProcessFlow;
 import com.inn.qms.service.IProcessFlowService;
 import org.springframework.beans.factory.annotation.Autowired;
