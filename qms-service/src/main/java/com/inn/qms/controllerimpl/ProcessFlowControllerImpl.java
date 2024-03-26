@@ -1,4 +1,4 @@
-package com.inn.qms.controllerimpl;
+package com.inn.qms.controllerImpl;
 
 import com.inn.qms.controller.IProcessFlowController;
 import com.inn.qms.model.ProcessFlow;
