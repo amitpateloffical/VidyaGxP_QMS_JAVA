@@ -51,7 +51,7 @@ public class SiteControllerImpl implements ISiteController {
     @PutMapping("{id}")
     // http://localhost:8080/api/users/1
     public ResponseEntity<Site> updateSite(@PathVariable("id") Long siteId, @RequestBody Site site){
-        site.setSiteId(siteId);
+        site.setId(siteId);
         Site updatedSite = siteService.updateSite(site);
         return new ResponseEntity<>(updatedSite, HttpStatus.OK);
     }

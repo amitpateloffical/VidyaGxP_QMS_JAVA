@@ -24,7 +24,7 @@ public class SiteServiceImpl implements ISiteService {
     public Site updateSite(Site site, Long siteId)
     {
         Site siteData=siteRepository.findById(siteId).orElseThrow(()-> new RuntimeException("Site not found"));
-        siteData.setSiteName(site.getSiteName());
+        siteData.setName(site.getName());
         siteRepository.save(siteData);
         return siteData;
     }

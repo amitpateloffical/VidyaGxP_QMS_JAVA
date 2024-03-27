@@ -25,7 +25,7 @@ public class ProcessFlowServiceImpl implements IProcessFlowService {
                 new RuntimeException("Process Not found"));
 
         process.setStatus(processflow.getStatus());
-        process.setFlowName(processflow.getFlowName());
+        process.setFlowName(processflow.getName());
         processFlowRepository.save(process);
         return process;
     }

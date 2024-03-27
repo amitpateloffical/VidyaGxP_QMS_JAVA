@@ -36,7 +36,7 @@ public class ProcessFlowAddInfoServiceImpl implements IProcessFlowAddInfoService
 		log.info("Inside ProcessFlowAddInfoServiceImpl class create method processAdditionalInfo {} ",
 				processAdditionalInfo);
 		try {
-			Optional<Site> site = siteRepository.findById(processAdditionalInfo.getSite().getSiteId());
+			Optional<Site> site = siteRepository.findById(processAdditionalInfo.getSite().getId());
 			log.info("Inside ProcessFlowAddInfoServiceImpl class create method site {} ", site.get());
 			Optional<ProcessFlow> processFlow = processFlowRepository
 					.findById(processAdditionalInfo.getProcessFlow().getId());
