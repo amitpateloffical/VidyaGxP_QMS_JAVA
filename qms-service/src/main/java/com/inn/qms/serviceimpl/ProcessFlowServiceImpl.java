@@ -2,7 +2,7 @@ package com.inn.qms.serviceimpl;
 
 import  com.inn.qms.respository.IProcessFlowRepository;
 import com.inn.qms.Exception1.DataNotFoundException;
-import com.inn.qms.Respository.IProcessFlowRepository;
+//import com.inn.qms.Respository.IProcessFlowRepository;
 
 import com.inn.qms.model.ProcessFlow;
 import com.inn.qms.service.IProcessFlowService;
@@ -29,14 +29,12 @@ public class ProcessFlowServiceImpl implements IProcessFlowService {
             }
 
             if (processflow.getFlowName() == null) {
-                throw new com.inn.qms.Exception1.DataNotFoundException("Flow name is null");
+                throw new com.inn.qms.Exception1.DataNotFoundException("Please provide the Flow Name");
             }
 
             if (processflow.getStatus() == null) {
-                throw new com.inn.qms.Exception1.DataNotFoundException("Status is null");
+                throw new com.inn.qms.Exception1.DataNotFoundException("Please provide the status");
             }
-
-            // Add checks for other fields
 
             ProcessFlow createdProcess = processFlowRepository.save(processflow);
             return createdProcess;
@@ -50,13 +48,14 @@ public class ProcessFlowServiceImpl implements IProcessFlowService {
     public ProcessFlow updateProcess(ProcessFlow processflow, Long id) {
         try {
             if (processFlowRepository.findById(id).isEmpty()) {
-                throw new DataNotFoundException("Requested Processflow Id does not exist");
+                throw new DataNotFoundException("Please provide the valid Flow id");
             }
 
             ProcessFlow updated = processFlowRepository.findById(id)
                     .orElseThrow(() -> new RuntimeException("ProcessFlow not found"));
 
             updated.setFlowName(processflow.getFlowName());
+            updated.setStatus(processflow.getStatus());
             processFlowRepository.save(updated);
 
            log.info("Updated Process Flow with id {}: {}", id, updated);
@@ -74,7 +73,7 @@ public class ProcessFlowServiceImpl implements IProcessFlowService {
   try {
 
     if(processFlowRepository.findById(id).isEmpty()) {
-      throw new DataNotFoundException("Requested Flow-id does not exist");
+      throw new DataNotFoundException("Please provide the valid Flow id");
     }
 
     return processFlowRepository.findById(id).get();
@@ -98,7 +97,7 @@ public class ProcessFlowServiceImpl implements IProcessFlowService {
           ProcessFlow getByNameData = processFlowRepository.findByflowName(flowName);
 
           if (getByNameData == null)
-              throw new com.inn.qms.Exception1.DataNotFoundException("Requested Flow-Name is dose not exist");
+              throw new com.inn.qms.Exception1.DataNotFoundException("Please provide the valid Flow Name");
 
           return getByNameData;
       }
@@ -116,6 +115,12 @@ public class ProcessFlowServiceImpl implements IProcessFlowService {
 
     @Override
     public List<ProcessFlow> getAllDetails() {
-        return processFlowRepository.findAll();
-    }
+  try {
+    return processFlowRepository.findAll();
+  } catch (Exception e) {
+    log.error("Error getting all process flow details", e);
+    throw e;
+  }
+}
+
 }

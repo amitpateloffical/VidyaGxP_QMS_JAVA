@@ -4,14 +4,12 @@ import com.inn.qms.controller.IProcessFlowController;
 import com.inn.qms.model.ProcessFlow;
 import com.inn.qms.service.IProcessFlowService;
 import lombok.extern.slf4j.Slf4j;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.logging.Logger;
 
 @RestController
 @CrossOrigin(origins = "*",allowedHeaders = "*")
@@ -53,9 +51,6 @@ public ResponseEntity<ProcessFlow> updateProcess(ProcessFlow processFlow, long i
         }
 
 }
-
-
-
     @Override
    public ProcessFlow getByIdDetails(Long id) {
 
@@ -90,12 +85,6 @@ public ResponseEntity<ProcessFlow> updateProcess(ProcessFlow processFlow, long i
            log.info("Error getting ProcessFlow by id  :  "+e);
             throw e;
         }
-    }
-
-    @Override
-    @GetMapping("/Name/{flowName}")
-    public ProcessFlow getByNameDetails(@PathVariable ("flowName") String flowName) {
-        return processFlowService.getByNameProcessDetail(flowName);
     }
 
     @Override

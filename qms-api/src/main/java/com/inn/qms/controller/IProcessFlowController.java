@@ -10,9 +10,9 @@ import java.util.List;
 public interface IProcessFlowController {
 
 
-    ResponseEntity<ProcessFlow> createProcess(ProcessFlow processFlow);
+    //ResponseEntity<ProcessFlow> createProcess(ProcessFlow processFlow);
     
-    ResponseEntity<ProcessFlow> updateProcess( ProcessFlow processFlow, long id);
+    //ResponseEntity<ProcessFlow> updateProcess( ProcessFlow processFlow, long id);
     @PostMapping("/create")
     ResponseEntity<ProcessFlow> createProcess(@RequestBody ProcessFlow processFlow);
 
@@ -25,7 +25,7 @@ public interface IProcessFlowController {
     @GetMapping("/Name/{flowName}")
     public ProcessFlow getByNameDetails(@PathVariable ("flowName") String flowName);
 
-    @GetMapping("/alldetaills")
+    @GetMapping("/alldetails")
     public List<ProcessFlow> getAllDetails();
 
 
