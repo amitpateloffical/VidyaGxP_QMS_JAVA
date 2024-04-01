@@ -22,6 +22,9 @@ public class ProcessFlow extends BaseEntity {
 	@Column(name = "flow_name")
 	private String flowName;
 	
+	
+	
+	
 	@Column(name = "status")
 	private String status;
 }
