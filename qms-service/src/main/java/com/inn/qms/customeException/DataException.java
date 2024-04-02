@@ -1,4 +1,4 @@
-package com.inn.qms.Exception1;
+package com.inn.qms.customeException;
 
 import org.springframework.http.HttpStatus;
 

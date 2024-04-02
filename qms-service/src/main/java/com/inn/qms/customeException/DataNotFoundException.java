@@ -1,4 +1,4 @@
-package com.inn.qms.Exception1;
+package com.inn.qms.customeException;
 
 public class DataNotFoundException extends RuntimeException{
     public DataNotFoundException(String message) {
@@ -6,6 +6,7 @@ public class DataNotFoundException extends RuntimeException{
     }
 
     public DataNotFoundException(String message, Throwable cause) {
+
         super(message, cause);
     }
 }

@@ -1,7 +1,7 @@
 package com.inn.qms.serviceimpl;
 
-import  com.inn.qms.respository.IProcessFlowRepository;
-import com.inn.qms.Exception1.DataNotFoundException;
+import  com.inn.qms.repository.IProcessFlowRepository;
+import com.inn.qms.customeException.DataNotFoundException;
 //import com.inn.qms.Respository.IProcessFlowRepository;
 
 import com.inn.qms.model.ProcessFlow;
@@ -29,11 +29,11 @@ public class ProcessFlowServiceImpl implements IProcessFlowService {
             }
 
             if (processflow.getFlowName() == null) {
-                throw new com.inn.qms.Exception1.DataNotFoundException("Please provide the Flow Name");
+                throw new com.inn.qms.customeException.DataNotFoundException("Please provide the Flow Name");
             }
 
             if (processflow.getStatus() == null) {
-                throw new com.inn.qms.Exception1.DataNotFoundException("Please provide the status");
+                throw new com.inn.qms.customeException.DataNotFoundException("Please provide the status");
             }
 
             ProcessFlow createdProcess = processFlowRepository.save(processflow);
@@ -97,7 +97,7 @@ public class ProcessFlowServiceImpl implements IProcessFlowService {
           ProcessFlow getByNameData = processFlowRepository.findByflowName(flowName);
 
           if (getByNameData == null)
-              throw new com.inn.qms.Exception1.DataNotFoundException("Please provide the valid Flow Name");
+              throw new com.inn.qms.customeException.DataNotFoundException("Please provide the valid Flow Name");
 
           return getByNameData;
       }

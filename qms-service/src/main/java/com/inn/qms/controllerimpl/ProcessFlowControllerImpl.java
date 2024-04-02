@@ -13,9 +13,7 @@ import java.util.List;
 
 @RestController
 @CrossOrigin(origins = "*",allowedHeaders = "*")
-@RequestMapping("/processFlow")
 @Slf4j
-
 public class ProcessFlowControllerImpl implements IProcessFlowController {
     @Autowired
     IProcessFlowService processFlowService;
@@ -88,7 +86,6 @@ public ResponseEntity<ProcessFlow> updateProcess(ProcessFlow processFlow, long i
     }
 
     @Override
-    @GetMapping("/alldetails")
     public List<ProcessFlow> getAllDetails() {
          log.info("Request to get all Processflow Data");
         return processFlowService.getAllDetails();

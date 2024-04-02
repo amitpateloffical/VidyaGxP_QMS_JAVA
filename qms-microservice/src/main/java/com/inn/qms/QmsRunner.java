@@ -16,5 +16,4 @@ public class QmsRunner {
        public static void main(String[] args) {
 		SpringApplication.run(QmsRunner.class, args);
 	}
-       
 }

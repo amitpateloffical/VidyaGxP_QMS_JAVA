@@ -1,4 +1,4 @@
-package com.inn.qms.respository;
+package com.inn.qms.repository;
 
 import com.inn.qms.model.Site;
 import org.springframework.data.jpa.repository.JpaRepository;
