@@ -49,5 +49,55 @@ public class ColumnValues {
     @Column(name = "date_recorded")
     private Date dateRecorded;
 
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public ProcessFlowDefinition getFlowDefinition() {
+		return flowDefinition;
+	}
+
+	public void setFlowDefinition(ProcessFlowDefinition flowDefinition) {
+		this.flowDefinition = flowDefinition;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public ColumnNames getColumnName() {
+		return columnName;
+	}
+
+	public void setColumnName(ColumnNames columnName) {
+		this.columnName = columnName;
+	}
+
+	public String getValue() {
+		return value;
+	}
+
+	public void setValue(String value) {
+		this.value = value;
+	}
+
+	public Date getDateRecorded() {
+		return dateRecorded;
+	}
+
+	public void setDateRecorded(Date dateRecorded) {
+		this.dateRecorded = dateRecorded;
+	}
+    
+    
+
     
 }
