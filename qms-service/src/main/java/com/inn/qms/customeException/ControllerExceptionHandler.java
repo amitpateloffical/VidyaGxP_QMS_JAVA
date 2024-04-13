@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 @ControllerAdvice
 public class ControllerExceptionHandler
 {
+
     @ExceptionHandler(value={DataNotFoundException.class})
     public ResponseEntity<Object> handleSiteNotFoundException(DataNotFoundException NotFoundException)
     {

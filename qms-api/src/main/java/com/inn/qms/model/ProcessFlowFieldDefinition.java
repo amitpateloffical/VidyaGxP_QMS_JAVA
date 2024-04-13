@@ -8,10 +8,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @Getter
 @Setter
@@ -19,6 +16,8 @@ import lombok.Setter;
 @NoArgsConstructor
 @Entity
 @Table(name = "processflowfield_definition")
+@ToString(includeFieldNames = true)
+
 public class ProcessFlowFieldDefinition {
 
 		@Id

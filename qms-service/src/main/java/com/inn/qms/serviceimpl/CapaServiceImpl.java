@@ -1,9 +1,9 @@
 package com.inn.qms.serviceimpl;
 
+import com.inn.qms.repository.IColumnNamesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.inn.qms.respository.IColumnNamesRepository;
 import com.inn.qms.service.ICapaService;
 import com.inn.qms.wrapper.CapaWrapper;
 import java.util.Map;
