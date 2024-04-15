@@ -13,6 +13,7 @@ import org.hibernate.resource.transaction.backend.jta.internal.synchronization.E
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -41,6 +42,8 @@ public class ProcessFlowAddInfoServiceImpl implements IProcessFlowAddInfoService
                      log.info("Inside ProcessFlowAddInfoServiceImpl class create method in if {} ",processAdditionalInfo);
                      updatedProcessAdditionalInfo = processFlowAddInfoRepository.save(processAdditionalInfo);
                  }
+                 updatedProcessAdditionalInfo.setSite(site.get());
+                 updatedProcessAdditionalInfo.setProcessFlow(processFlow.get() );
 
                 
                  
@@ -53,5 +56,15 @@ public class ProcessFlowAddInfoServiceImpl implements IProcessFlowAddInfoService
     @Override
     public ProcessAdditionalInfo getByIdAllDetails(Long id) {
         return processFlowAddInfoRepository.findById(id).get();
+    }
+
+    @Override
+    public List<ProcessAdditionalInfo> getAllDetails() {
+        return processFlowAddInfoRepository.findAll();
+    }
+
+    @Override
+    public List<ProcessAdditionalInfo> getSiteProcessFlows() {
+        return processFlowAddInfoRepository.getSiteProcessFlows();
     }
 }
