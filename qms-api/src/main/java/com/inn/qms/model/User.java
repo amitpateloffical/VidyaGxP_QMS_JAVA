@@ -28,7 +28,7 @@ public class User {
     private Long id;
 
     @Column(name = "username")
-    private String username;
+    private String userName;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<UserForm> userForms;
