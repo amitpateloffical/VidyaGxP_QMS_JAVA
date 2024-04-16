@@ -91,6 +91,8 @@
 					</archive>
 					<excludes>
 						<exclude>**/application.properties</exclude>
+					        <exclude>**/logback.xml</exclude>
+					        <exclude>**/logback-access.xml</exclude>
 					</excludes>
 					<finalName>qms-microservice</finalName>
 					<outputDirectory>${output.dir}</outputDirectory>
