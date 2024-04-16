@@ -5,7 +5,8 @@ import com.inn.qms.model.ProcessAdditionalInfo;
 import com.inn.qms.model.ProcessFlow;
 import com.inn.qms.model.Site;
 
-import com.inn.qms.repository.IProcessFlowFieldDefinitionRepository;
+import com.inn.qms.repository.IProcessFlowAddInfoRepository;
+
 import com.inn.qms.repository.IProcessFlowRepository;
 import com.inn.qms.repository.ISiteRepository;
 import com.inn.qms.service.IProcessFlowAddInfoService;
@@ -26,7 +27,7 @@ public class ProcessFlowAddInfoServiceImpl implements IProcessFlowAddInfoService
     private IProcessFlowRepository processFlowRepository;
 
     @Autowired
-    private IProcessFlowFieldDefinitionRepository.IProcessFlowAddInfoRepository processFlowAddInfoRepository;
+    private IProcessFlowAddInfoRepository processFlowAddInfoRepository;
 
     @Override
     public ProcessAdditionalInfo create(ProcessAdditionalInfo processAdditionalInfo) {
@@ -65,6 +66,6 @@ public class ProcessFlowAddInfoServiceImpl implements IProcessFlowAddInfoService
 
     @Override
     public List<ProcessAdditionalInfo> getSiteProcessFlows() {
-        return processFlowAddInfoRepository.getSiteProcessFlows();
+        return processFlowAddInfoRepository.findAll();
     }
 }

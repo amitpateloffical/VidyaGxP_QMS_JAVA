@@ -34,9 +34,9 @@ public class ColumnValues {
     @JoinColumn(name = "flow_id", referencedColumnName = "id")
     private ProcessFlowDefinition flowDefinition;
 
-    @ManyToOne
-    @JoinColumn(name = "user_id", referencedColumnName = "id")
-    private User user;
+//    @ManyToOne
+//    @JoinColumn(name = "user_id", referencedColumnName = "id")
+//    private User user;
 
     @ManyToOne
     @JoinColumn(name = "column_id", referencedColumnName = "id")
