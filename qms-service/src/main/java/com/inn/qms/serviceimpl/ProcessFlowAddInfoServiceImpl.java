@@ -1,15 +1,15 @@
 package com.inn.qms.serviceimpl;
 
-import com.inn.qms.Respository.IProcessFlowAddInfoRepository;
-import com.inn.qms.Respository.IProcessFlowRepository;
-import com.inn.qms.Respository.ISiteRepository;
-import com.inn.qms.controller.IProcessFlowAddInfoController;
+
 import com.inn.qms.model.ProcessAdditionalInfo;
 import com.inn.qms.model.ProcessFlow;
 import com.inn.qms.model.Site;
+
+import com.inn.qms.repository.IProcessFlowFieldDefinitionRepository;
+import com.inn.qms.repository.IProcessFlowRepository;
+import com.inn.qms.repository.ISiteRepository;
 import com.inn.qms.service.IProcessFlowAddInfoService;
 import lombok.extern.slf4j.Slf4j;
-import org.hibernate.resource.transaction.backend.jta.internal.synchronization.ExceptionMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -26,7 +26,7 @@ public class ProcessFlowAddInfoServiceImpl implements IProcessFlowAddInfoService
     private IProcessFlowRepository processFlowRepository;
 
     @Autowired
-    private IProcessFlowAddInfoRepository processFlowAddInfoRepository;
+    private IProcessFlowFieldDefinitionRepository.IProcessFlowAddInfoRepository processFlowAddInfoRepository;
 
     @Override
     public ProcessAdditionalInfo create(ProcessAdditionalInfo processAdditionalInfo) {

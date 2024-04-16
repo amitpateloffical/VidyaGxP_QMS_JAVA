@@ -1,4 +1,4 @@
-package com.inn.qms.Respository;
+package com.inn.qms.repository;
 
 import com.inn.qms.model.Person;
 import org.springframework.data.jpa.repository.JpaRepository;

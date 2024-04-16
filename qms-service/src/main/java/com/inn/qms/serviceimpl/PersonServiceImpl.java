@@ -1,7 +1,8 @@
 package com.inn.qms.serviceimpl;
 
-import com.inn.qms.Respository.IPersonRepository;
+
 import com.inn.qms.model.Person;
+import com.inn.qms.repository.IPersonRepository;
 import com.inn.qms.service.IPersonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
