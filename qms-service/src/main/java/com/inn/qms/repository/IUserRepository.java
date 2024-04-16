@@ -9,3 +9,4 @@ import com.inn.qms.model.User;
 public interface IUserRepository extends JpaRepository<User, Long> {
 	// Add custom query methods if needed
 }
+
