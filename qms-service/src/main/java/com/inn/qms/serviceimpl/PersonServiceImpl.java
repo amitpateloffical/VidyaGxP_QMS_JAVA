@@ -25,7 +25,7 @@ public class PersonServiceImpl implements IPersonService {
     @Override
     public Person updatePerson(Person person, Long id) {
         Person PersonId=personRepository.findById(id).orElseThrow(()-> new RuntimeException("Person Not Found"));
-        PersonId.setId(person.getId());
+        PersonId.setFirstName(person.getFirstName());
         personRepository.save(PersonId);
 
         return PersonId;

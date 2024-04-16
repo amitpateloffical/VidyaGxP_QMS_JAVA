@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.concurrent.atomic.AtomicInteger;
 
 @RestController
 @RequestMapping("/Person")
@@ -16,11 +17,14 @@ public class PersonControllerImpl implements IPersonController {
 
     @Autowired
     PersonServiceImpl personService;
+
     @Override
     @PostMapping("/create")
-
     public ResponseEntity<Person> createPerson(@RequestBody Person person) {
-        Person createPerson= personService.createPerson(person);
+
+        person.setPid(generateId());
+        Person createPerson = personService.createPerson(person);
+
 
         return new ResponseEntity<Person>(createPerson, HttpStatus.CREATED);
     }
@@ -28,8 +32,8 @@ public class PersonControllerImpl implements IPersonController {
     @Override
     @PutMapping("/update/{id}")
 
-    public ResponseEntity<Person> updatePerson(@RequestBody Person person,@PathVariable Long id) {
-        Person updatePerson=personService.updatePerson(person, id);
+    public ResponseEntity<Person> updatePerson(@RequestBody Person person, @PathVariable Long id) {
+        Person updatePerson = personService.updatePerson(person, id);
         return new ResponseEntity<Person>(updatePerson, HttpStatus.OK);
     }
 
@@ -45,5 +49,14 @@ public class PersonControllerImpl implements IPersonController {
 
     public List<Person> getAllPerson() {
         return personService.getAllPerson();
+    }
+
+    private String generateId() {
+         final String PREFIX = "PID";
+         final int NUM_DIGITS = 7; // Number of digits in the ID
+         final String FORMAT = PREFIX + "%0" + NUM_DIGITS + "d";
+         final AtomicInteger counter = new AtomicInteger(1);
+         int id = counter.getAndIncrement();
+         return String.format(FORMAT, id);
     }
 }
