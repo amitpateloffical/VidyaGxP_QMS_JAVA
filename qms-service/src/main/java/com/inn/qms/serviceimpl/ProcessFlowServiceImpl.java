@@ -1,7 +1,8 @@
 package com.inn.qms.serviceimpl;
 
+import com.inn.qms.exception.BusinessException;
 import  com.inn.qms.repository.IProcessFlowRepository;
-import com.inn.qms.customeException.DataNotFoundException;
+
 
 
 import com.inn.qms.model.ProcessFlow;
@@ -29,11 +30,11 @@ public class ProcessFlowServiceImpl implements IProcessFlowService {
             }
 
             if (processflow.getFlowName() == null) {
-                throw new com.inn.qms.customeException.DataNotFoundException("Please provide the Flow Name");
+                throw new BusinessException("Please provide the Flow Name");
             }
 
             if (processflow.getStatus() == null) {
-                throw new com.inn.qms.customeException.DataNotFoundException("Please provide the status");
+                throw new BusinessException("Please provide the status");
             }
 
             ProcessFlow createdProcess = processFlowRepository.save(processflow);
@@ -48,7 +49,7 @@ public class ProcessFlowServiceImpl implements IProcessFlowService {
     public ProcessFlow updateProcess(ProcessFlow processflow, Long id) {
         try {
             if (processFlowRepository.findById(id).isEmpty()) {
-                throw new DataNotFoundException("Please provide the valid Flow id");
+                throw new BusinessException("Please provide the valid Flow id");
             }
 
             ProcessFlow updated = processFlowRepository.findById(id)
@@ -73,12 +74,12 @@ public class ProcessFlowServiceImpl implements IProcessFlowService {
   try {
 
     if(processFlowRepository.findById(id).isEmpty()) {
-      throw new DataNotFoundException("Please provide the valid Flow id");
+      throw new BusinessException("Please provide the valid Flow id");
     }
 
     return processFlowRepository.findById(id).get();
 
-  } catch (DataNotFoundException ex) {
+  } catch (BusinessException ex) {
     log.info("Process not found for id: " + ex);
     throw ex;
 
@@ -97,11 +98,11 @@ public class ProcessFlowServiceImpl implements IProcessFlowService {
           ProcessFlow getByNameData = processFlowRepository.findByflowName(flowName);
 
           if (getByNameData == null)
-              throw new com.inn.qms.customeException.DataNotFoundException("Please provide the valid Flow Name");
+              throw new BusinessException("Please provide the valid Flow Name");
 
           return getByNameData;
       }
-      catch (DataNotFoundException ex)
+      catch (BusinessException ex)
       {
         log.info("Process not found :"+ ex);
           throw ex;
