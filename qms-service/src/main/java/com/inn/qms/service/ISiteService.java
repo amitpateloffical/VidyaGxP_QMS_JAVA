@@ -12,4 +12,6 @@ public interface ISiteService {
     public List<Site> getAllSite();
     public Site getByNameDetails(String siteName);
 
+
+
 }
