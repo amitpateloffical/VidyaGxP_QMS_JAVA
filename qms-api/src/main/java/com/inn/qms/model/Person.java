@@ -2,10 +2,7 @@ package com.inn.qms.model;
 
 import com.inn.qms.anotations.PIDGenerater;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @Entity
 @Table(name="person")
@@ -13,13 +10,15 @@ import lombok.Setter;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 public class Person extends BaseEntity{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long Id;
-    @Column
-    private String profilePhoto;
+    @Lob
+    @Column(name="profilePhoto",length = 1000)
+    private byte[] profilePhoto;
     @Column
     private String firstName;
     @Column
@@ -61,8 +60,7 @@ public class Person extends BaseEntity{
     private String address;
 
     @Column
-
-    private String postalCode;
+     private String postalCode;
 
     @Column
     private String country;
@@ -71,17 +69,16 @@ public class Person extends BaseEntity{
     private String city;
 
     @Column
-
     private String detailedAddress;
 
     @Column
-
     private String comments;
 
     @Column
     private String reference;
 
     @Column
+    @PIDGenerater
     private String pid;
 
 }
