@@ -10,6 +10,7 @@ import com.inn.qms.SpringSecurityConfiguration.Repository.UserRepository;
 import com.inn.qms.SpringSecurityConfiguration.services.AuthenticationService;
 import com.inn.qms.SpringSecurityConfiguration.services.JWTService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -21,12 +22,16 @@ import java.util.HashMap;
 @RequiredArgsConstructor
 public class AuthenticationServiceImpl implements AuthenticationService {
 
+    @Autowired
     private final UserRepository userRepository;
 
+    @Autowired
     private final PasswordEncoder passwordEncoder;
 
+    @Autowired
     private final AuthenticationManager authenticationManager;
 
+    @Autowired
     private final JWTService jwtService;
 
     public User signup(SignUpRequest signUpRequest){
