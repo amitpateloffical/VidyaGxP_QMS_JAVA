@@ -14,4 +14,6 @@ public interface IPersonService {
     public List<Person> getAllPerson();
 
     public Person getPersonById(Long id);
+
+    public List<Person> search(String _s);
 }

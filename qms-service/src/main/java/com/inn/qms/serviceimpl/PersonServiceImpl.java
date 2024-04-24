@@ -1,6 +1,7 @@
 package com.inn.qms.serviceimpl;
 
 
+import com.inn.qms.dao.IPersonDao;
 import com.inn.qms.model.Person;
 import com.inn.qms.repository.IPersonRepository;
 import com.inn.qms.service.IPersonService;
@@ -13,8 +14,10 @@ import java.util.Optional;
 public class PersonServiceImpl implements IPersonService {
 
     @Autowired
-    IPersonRepository personRepository;
+    private IPersonRepository personRepository;
 
+    @Autowired
+    private IPersonDao iPersonDao;
 
     @Override
     public Person createPerson(Person person) {
@@ -44,5 +47,10 @@ public class PersonServiceImpl implements IPersonService {
         Optional<Person> person	= personRepository.findById(id);
         return person.get();
 
+    }
+
+    @Override
+    public List<Person> search(String _s) {
+        return iPersonDao.search(_s);
     }
 }

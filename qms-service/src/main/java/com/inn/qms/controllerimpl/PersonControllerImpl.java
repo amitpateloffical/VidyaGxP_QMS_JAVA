@@ -2,8 +2,11 @@ package com.inn.qms.controllerimpl;
 
 import com.inn.qms.controller.IPersonController;
 import com.inn.qms.model.Person;
+import com.inn.qms.service.IPersonService;
 import com.inn.qms.serviceimpl.PersonServiceImpl;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -13,10 +16,11 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 @RestController
 @RequestMapping("/Person")
+@Slf4j
 public class PersonControllerImpl implements IPersonController {
 
     @Autowired
-    PersonServiceImpl personService;
+    IPersonService personService;
 
     @Override
     @PostMapping("/create")
@@ -49,6 +53,11 @@ public class PersonControllerImpl implements IPersonController {
 
     public List<Person> getAllPerson() {
         return personService.getAllPerson();
+    }
+
+    @Override
+    public List<Person> search(String _s) {
+        return personService.search(_s);
     }
 
     private String generateId() {
