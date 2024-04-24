@@ -1,13 +1,12 @@
 package com.inn.qms.serviceimpl;
 
 
-import com.inn.qms.model.ImageUtils;
+
 import com.inn.qms.model.Person;
 import com.inn.qms.repository.IPersonRepository;
 import com.inn.qms.service.IPersonService;
 import com.inn.qms.utils.JsonUtils;
 import com.inn.qms.utils.StringUtils;
-import io.swagger.v3.core.util.Json;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -81,14 +80,14 @@ public class PersonServiceImpl implements IPersonService {
 
     public String uploadprofilePhoto(MultipartFile file) throws IOException {
 
-        Person personData = personRepository.save(Person.builder()
-                .firstName(file.getOriginalFilename()) // Correct this attribute for image data
-                .lastName(file.getContentType()) // Correct this attribute for image data
-                .profilePhoto(ImageUtils.compressImage(file.getBytes())).build()); // Correct this attribute for image data
-        if (personData != null) {
-            return "file uploaded successfully : " + file.getOriginalFilename();
-        }
-        return null;
+//        Person personData = personRepository.save(Person.builder()
+//                .firstName(file.getOriginalFilename()) // Correct this attribute for image data
+//                .lastName(file.getContentType()) // Correct this attribute for image data
+//                .profilePhoto(ImageUtils.compressImage(file.getBytes())).build()); // Correct this attribute for image data
+//        if (personData != null) {
+//            return "file uploaded successfully : " + file.getOriginalFilename();
+    //    }
+        return "Test";
 
     }
 
@@ -96,8 +95,8 @@ public class PersonServiceImpl implements IPersonService {
     public byte[] downloadImage(String fileName) {
 
        Optional<Person> personImage =personRepository.findByFirstName(fileName);
-       byte[] images= ImageUtils.decompressImage(personImage.get().getProfilePhoto());
-       return images;
+       //byte[] images= ImageUtils.decompressImage(personImage.get().getProfilePhoto());
+       return null;
 //
     }
 }

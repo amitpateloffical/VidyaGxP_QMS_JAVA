@@ -1,7 +1,6 @@
 package com.inn.qms.controllerimpl;
 
 import com.inn.qms.controller.IPersonController;
-import com.inn.qms.model.ImageUtils;
 import com.inn.qms.model.Person;
 import com.inn.qms.serviceimpl.PersonServiceImpl;
 import lombok.extern.slf4j.Slf4j;
