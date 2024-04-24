@@ -21,4 +21,6 @@ public interface IPersonService {
     public String uploadprofilePhoto(MultipartFile file) throws IOException;
 
     public byte[] downloadImage(String fileName);
+
+
 }
