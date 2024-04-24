@@ -15,11 +15,9 @@ public class PersonServiceImpl implements IPersonService {
     @Autowired
     IPersonRepository personRepository;
 
-
     @Override
     public Person createPerson(Person person) {
         Person persson=	personRepository.save(person);
-
         return persson;
     }
 
@@ -28,7 +26,6 @@ public class PersonServiceImpl implements IPersonService {
         Person PersonId=personRepository.findById(id).orElseThrow(()-> new RuntimeException("Person Not Found"));
         PersonId.setFirstName(person.getFirstName());
         personRepository.save(PersonId);
-
         return PersonId;
     }
 
@@ -40,7 +37,6 @@ public class PersonServiceImpl implements IPersonService {
 
     @Override
     public Person getPersonById(Long id) {
-
         Optional<Person> person	= personRepository.findById(id);
         return person.get();
 
