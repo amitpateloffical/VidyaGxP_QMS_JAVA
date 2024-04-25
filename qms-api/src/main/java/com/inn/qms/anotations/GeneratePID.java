@@ -5,8 +5,8 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 @Retention(RetentionPolicy.RUNTIME)
-@Target(ElementType.FIELD)
-public @interface PIDGenerater {
+@Target({ElementType.METHOD,ElementType.FIELD})
+public @interface GeneratePID {
     String prefix() default "PID";
     int numDigits() default 7;
 }

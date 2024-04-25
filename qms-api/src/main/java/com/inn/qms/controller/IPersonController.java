@@ -32,4 +32,6 @@ public interface IPersonController {
 
   //  public byte[] downloadImage(String fileName);
     ResponseEntity<byte[]> downloadPhoto(String fileName);
+
+
 }

@@ -1,6 +1,6 @@
 package com.inn.qms.model;
 
-import com.inn.qms.anotations.PIDGenerater;
+import com.inn.qms.anotations.GeneratePID;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -78,7 +78,6 @@ public class Person extends BaseEntity{
     private String reference;
 
     @Column
-    @PIDGenerater
     private String pid;
 
 }

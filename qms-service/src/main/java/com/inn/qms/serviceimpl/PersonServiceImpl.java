@@ -2,6 +2,8 @@ package com.inn.qms.serviceimpl;
 
 
 
+import com.inn.qms.anotations.GeneratePID;
+import com.inn.qms.aop.PersonIdGeneratorAspect;
 import com.inn.qms.model.Person;
 import com.inn.qms.repository.IPersonRepository;
 import com.inn.qms.service.IPersonService;
@@ -24,21 +26,24 @@ public class PersonServiceImpl implements IPersonService {
     @Autowired
     IPersonRepository personRepository;
 
-
+    
     @Override
     public ResponseEntity<String> createPerson(String person,MultipartFile image,MultipartFile [] references) {
       log.info("Inside PersonServiceImpl class create method");
         Person personObject = null;
         try{
-            if(!StringUtils.isEmpty(person)){
+            if(StringUtils.isNotEmpty(person)){
             personObject = JsonUtils.fromJson(person,Person.class);}
             log.info("Parse String into Person Object {}",personObject);
             if(personObject==null  || image==null || references==null)
             {
                 throw new IllegalArgumentException("Invalid request data");
             }
-             personObject.setProfilePhoto(image.getBytes());
-             personRepository.save(personObject);
+            personObject.setProfilePhoto(image.getBytes());
+
+            Person insertData = personRepository.save(personObject);
+            insertData.setPid((generatePID(insertData.getId(),"PID",7)));
+            personRepository.save(insertData);
             return new ResponseEntity<>("User Create Successfully",HttpStatus.CREATED);
 
         } catch (IllegalArgumentException e) {
@@ -98,6 +103,13 @@ public class PersonServiceImpl implements IPersonService {
        //byte[] images= ImageUtils.decompressImage(personImage.get().getProfilePhoto());
        return null;
 //
+    }
+
+    private  String generatePID(Long id ,String prefix, int numDigits) {
+        String formatString = "%s%0" + numDigits + "d"; // Use "%s" to include the prefix
+        log.info("Inside PersonServiceImpl class generatePID method {}",formatString);
+        String pid = String.format(formatString, prefix, id);
+        return pid;
     }
 }
 
