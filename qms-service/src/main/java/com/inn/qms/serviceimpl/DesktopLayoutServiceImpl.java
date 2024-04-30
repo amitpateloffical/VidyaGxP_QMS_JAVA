@@ -1,5 +1,4 @@
 package com.inn.qms.serviceimpl;
-
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.inn.qms.exception.BusinessException;
@@ -73,7 +72,6 @@ public class DesktopLayoutServiceImpl implements DesktopLayoutService {
             throw new BusinessException("Desktop Layout not found with id " + id);
         }
     }
-
     @Override
     public DesktopLayoutDetails findLayoutByName(String name) {
         Optional<DesktopLayoutDetails> optionalLayout = desktopLayoutRepository.findByName(name);
@@ -108,9 +106,9 @@ public class DesktopLayoutServiceImpl implements DesktopLayoutService {
         if (ids == null || ids.isEmpty()) {
             throw new IllegalArgumentException("List of IDs is null or empty.");
         }
-        // Loop through each ID and delete the corresponding entity
+        // Loop through each ID and delete the corresponding entity...
         for (Long id : ids) {
-            // Check if the entity exists before attempting deletion
+            // Check if the entity exists before attempting deletation
             if (desktopLayoutRepository.existsById(id)) {
                 desktopLayoutRepository.deleteById(id);
             } else {
@@ -118,5 +116,5 @@ public class DesktopLayoutServiceImpl implements DesktopLayoutService {
             }
         }
     }
-    // Other methods omitted for brevity.......
+    // Other methods omitted for brevity. .. ...
 }

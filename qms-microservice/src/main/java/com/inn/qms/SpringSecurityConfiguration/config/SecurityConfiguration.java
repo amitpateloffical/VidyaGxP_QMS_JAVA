@@ -43,7 +43,13 @@ public class SecurityConfiguration {
                         .requestMatchers("/api/v1/admin").hasAnyAuthority(Role.ADMIN.name())
                         .requestMatchers("/api/v1/user").hasAnyAuthority(Role.USER.name())
                         .requestMatchers("/api/desktop/**").permitAll()
+                        .requestMatchers("/layouts/**").permitAll()
                         .requestMatchers("/api/data-fields/**").permitAll()
+                        .requestMatchers("/api/capas/**").permitAll()
+                        .requestMatchers("/ActionItem/**").permitAll()
+                        .requestMatchers("/api/layout/**").permitAll()
+
+
 
 
                         .anyRequest().authenticated())
